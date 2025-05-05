@@ -1,0 +1,7 @@
+The real meaning of a “SFTP-backed S3 bucket” is that AWS Transfer Family provides a fully managed SFTP server, and it stores all uploaded files directly into an S3 bucket behind the scenes — that’s why it’s called “SFTP-backed S3.”
+Initially, we were confused and thought it was either just an S3 bucket or a regular SFTP server.
+The SHA-256 key shared by the Platform Engineering team is actually the server host key fingerprint, which helps verify the identity of the SFTP server during connection.
+It’s not related to IAM or user authentication — that part is handled through SSH key-based access configured within the Transfer Family service.
+
+The SHA-256 key shared by the Platform Engineering team is the server host key fingerprint, used to verify the server’s identity when connecting via SFTP.
+This is part of the SFTP trust process, and user authentication happens through SSH public keys, not via IAM
